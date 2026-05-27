@@ -45,6 +45,12 @@ export async function getRandomArtwork(): Promise<Artwork> {
 }
 
 export async function downloadImage(url: string): Promise<Buffer> {
-  const response = await axios.get(url, { responseType: 'arraybuffer' });
+  const response = await axios.get(url, { 
+    responseType: 'arraybuffer',
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'AIC-User-Agent': 'AIC-Bluesky-Bot (https://github.com/DMcP89/bsky-aicbot)'
+    }
+  });
   return Buffer.from(response.data, 'binary');
 }
