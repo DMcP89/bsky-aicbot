@@ -3,7 +3,8 @@ name: Post to Bluesky
 on:
   schedule:
     # 9:00 AM EST is 14:00 UTC
-    - cron: '0 14 * * *'
+    - cron: '0 9 * * *'
+      timezone: 'America/New_York'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
